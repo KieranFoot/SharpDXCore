@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  
+  <PropertyGroup>
+    <TargetFrameworks>net5.0</TargetFrameworks>
+    <PackageId>SharpDX.DirectComposition</PackageId>
+    <Product>SharpDX.DirectComposition</Product>
+    <DocumentationFile Condition="'$(Configuration)' == 'Release'">bin\$(Configuration)\$(TargetFramework)\SharpDX.DirectComposition.xml</DocumentationFile>
+    <AssemblyTitle>SharpDX.DirectComposition</AssemblyTitle>
+    <Title>SharpDX.DirectComposition</Title>
+    <Description>Assembly providing DirectX - DirectComposition managed API.</Description>
+    <PackageTags>$(PackageTags) DirectComposition DComposition</PackageTags>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="Documentation\CodeComments.xml" />
+    <None Include="Mapping.xml" />
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharpDX\SharpDX.csproj" />
+    <ProjectReference Include="..\SharpDX.DXGI\SharpDX.DXGI.csproj" />
+    <ProjectReference Include="..\SharpDX.Direct2D1\SharpDX.Direct2D1.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Update="SharpGenTools.Sdk" Version="1.2.1" />
+  </ItemGroup>
+
+  
+</Project>

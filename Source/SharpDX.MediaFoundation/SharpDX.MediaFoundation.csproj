@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  
+  <PropertyGroup>
+    <TargetFrameworks>net5.0</TargetFrameworks>
+    <PackageId>SharpDX.MediaFoundation</PackageId>
+    <Product>SharpDX.MediaFoundation</Product>
+    <DocumentationFile Condition="'$(Configuration)' == 'Release'">bin\$(Configuration)\$(TargetFramework)\SharpDX.MediaFoundation.xml</DocumentationFile>
+    <AssemblyTitle>SharpDX.MediaFoundation</AssemblyTitle>
+    <Title>SharpDX.MediaFoundation</Title>
+    <Description>Assembly providing DirectX - MediaFoundation managed API.</Description>
+    <PackageTags>$(PackageTags) MediaFoundation</PackageTags>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="Documentation\CodeComments.xml" />
+    <None Include="Mapping.xml" />
+    <None Include="Mapping-core.xml" />
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharpDX\SharpDX.csproj" />
+    <ProjectReference Include="..\SharpDX.DXGI\SharpDX.DXGI.csproj" />
+    <ProjectReference Include="..\SharpDX.Direct3D9\SharpDX.Direct3D9.csproj" Condition=" '$(AppType)' == 'DESKTOP_APP' " />
+    <ProjectReference Include="..\SharpDX.Mathematics\SharpDX.Mathematics.csproj" Condition=" '$(AppType)' == 'DESKTOP_APP' " />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Update="SharpGenTools.Sdk" Version="1.2.1" />
+  </ItemGroup>
+</Project>

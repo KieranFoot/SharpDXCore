@@ -1,0 +1,59 @@
+<Project>
+  <PropertyGroup>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>$(DefineConstants);DIRECTX11_1;DIRECTX11_2;DirectX12</DefineConstants>
+
+    <PackageIconUrl>http://sharpdx.org/logo_100x100.png</PackageIconUrl>
+    <PackageLicenseUrl>http://sharpdx.org/License.txt</PackageLicenseUrl>
+    <PackageProjectUrl>http://sharpdx.org</PackageProjectUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageTags>SharpDX DirectX Direct3D Multimedia MDX 3D</PackageTags>
+
+    <Authors>Alexandre Mutel</Authors>
+    <Owners>Alexandre Mutel</Owners>
+    <Company>Alexandre Mutel</Company>
+    <Copyright>Copyright (c) 2010-2016 Alexandre Mutel</Copyright>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageOutputPath>$(MSBuildThisFileDirectory)/../bin</PackageOutputPath>
+    <AppType Condition="$(TargetFramework.StartsWith('net4'))">DESKTOP_APP</AppType>
+    <AppType Condition="$(TargetFramework.StartsWith('net5'))">REFERENCE</AppType>
+    <AppType Condition="$(TargetFramework.StartsWith('netstandard'))">REFERENCE</AppType>
+    <SharpGenMacros>$(SharpGenMacros);$(AppType);DIRECTX11_1</SharpGenMacros>
+    <DefineConstants>$(DefineConstants);$(AppType)</DefineConstants>
+    <DefineConstants Condition="'$(TargetFramework)' == 'net40'">$(DefineConstants);BEFORE_NET45</DefineConstants>
+    <SharpGenGlobalNamespace>SharpDX</SharpGenGlobalNamespace>
+    <SharpGenGenerateDoc>true</SharpGenGenerateDoc>
+    <SharpGenIncludeAssemblyNameFolder>true</SharpGenIncludeAssemblyNameFolder>
+    <SharpGenOutputDirectory>$(MSBuildProjectDirectory)/../</SharpGenOutputDirectory>
+    <SharpGenGeneratedCodeFolder>Generated/$(AppType)</SharpGenGeneratedCodeFolder>
+    <SharpGenGeneratedCodeFolder Condition="'$(TargetFramework)' == 'net40'">Generated/net40_$(AppType)</SharpGenGeneratedCodeFolder>
+    <SharpGenDocumentationOutputDir>$(MSBuildThisFileDirectory)/DocumentationCache/$(TargetFramework)/</SharpGenDocumentationOutputDir>
+    <SharpGenGenerateConsumerBindMapping>false</SharpGenGenerateConsumerBindMapping>
+
+    <!--Output all assemblies into the same folder for the samples and to avoid copying assembly references all around for each project-->
+    <UseCommonOutputDirectory>true</UseCommonOutputDirectory>
+    <OutputPath>$(MSBuildThisFileDirectory)..\Bin\$(Configuration)\</OutputPath>
+    <DocumentationFile Condition="'$(Configuration)' == 'Release'">$(MSBuildThisFileDirectory)..\Bin\$(Configuration)\$(TargetFramework)\$(PackageId).xml</DocumentationFile>
+
+    <!-- Enable sourcelink support -->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' And Exists('$(MSBuildThisFileDirectory)/../sharpdx.snk')">
+    <DefineConstants>$(DefineConstants);SHARPDX_SIGNED</DefineConstants>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)/../sharpdx.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>true</DelaySign>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Nerdbank.GitVersioning" Version="3.3.37" PrivateAssets="All" />
+    <PackageReference Include="SharpGenTools.Sdk" Version="1.2.1" PrivateAssets="All" />
+    <PackageReference Include="SharpGen.Doc.Msdn.Tasks" Version="1.1.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
+    <SharpGenGlobalNamespaceOverrides Include="InterfaceArray" Override="ComArray" />
+    <SharpGenGlobalNamespaceOverrides Include="MemoryHelpers"  Override="Utilities" />
+    <SharpGenGlobalNamespaceOverrides Include="BooleanHelpers" Override="Utilities" />
+    <SharpGenGlobalNamespaceOverrides Include="StringHelpers"  Override="Utilities" />
+  </ItemGroup>
+</Project>

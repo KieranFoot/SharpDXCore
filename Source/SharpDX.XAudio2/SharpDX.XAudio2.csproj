@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  
+  <PropertyGroup>
+    <TargetFrameworks>net5.0</TargetFrameworks>
+    <PackageId>SharpDX.XAudio2</PackageId>
+    <Product>SharpDX.XAudio2</Product>
+    <DocumentationFile Condition="'$(Configuration)' == 'Release'">bin\$(Configuration)\$(TargetFramework)\SharpDX.XAudio2.xml</DocumentationFile>
+    <AssemblyTitle>SharpDX.XAudio2</AssemblyTitle>
+    <Title>SharpDX.XAudio2</Title>
+    <Description>Assembly providing DirectX - XAudio2, X3DAudio and XAPO managed API.</Description>
+    <PackageTags>$(PackageTags) XAudio2 X3DAudio XAPO</PackageTags>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="Documentation\CodeComments.xml" />
+    <None Include="Mapping.xml" />
+    <None Include="Mapping-xaudio2.xml">
+    </None>
+    <None Include="X3DAudio\Mapping.xml">
+    </None>
+    <None Include="XAPO\Mapping.xml">
+    </None>
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharpDX\SharpDX.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Update="SharpGenTools.Sdk" Version="1.2.1" />
+  </ItemGroup>
+</Project>
+

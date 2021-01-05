@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  
+  <PropertyGroup>
+    <TargetFrameworks>net5.0</TargetFrameworks>
+    <PackageId>SharpDX.Direct3D11.Effects</PackageId>
+    <Product>SharpDX.Direct3D11.Effects</Product>
+    <DocumentationFile Condition="'$(Configuration)' == 'Release'">bin\$(Configuration)\$(TargetFramework)\SharpDX.Direct3D11.Effects.xml</DocumentationFile>
+    <AssemblyTitle>SharpDX.Direct3D11.Effects</AssemblyTitle>
+    <Title>SharpDX.Direct3D11.Effects</Title>
+    <Description>Assembly providing DirectX - Effects11 managed API for Direct3D11.</Description>
+    <PackageTags>$(PackageTags) 3D Direct3D11 D3D11 Effects11</PackageTags>
+    <RuntimeIdentifiers>win-x86;win-x64;win8-arm</RuntimeIdentifiers>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="Documentation\CodeComments.xml" />
+    <None Include="Mapping.xml" />
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)..\..\External\Effects11\Bin\sharpdx_direct3d11_1_effects_x64.dll">
+      <Link>sharpdx_direct3d11_1_effects_x64.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <PackagePath>runtimes/win7-x64/native/sharpdx_direct3d11_1_effects.dll</PackagePath>
+      <Pack>true</Pack>
+    </None>
+    <None Include="..\..\External\Effects11\Bin\sharpdx_direct3d11_1_effects_x86.dll">
+      <Link>sharpdx_direct3d11_1_effects_x86.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <PackagePath>runtimes/win7-x86/native/sharpdx_direct3d11_1_effects.dll</PackagePath>
+      <Pack>true</Pack>
+    </None>
+    <None Include="..\..\External\Effects11\Bin\sharpdx_direct3d11_1_effects_arm.dll">
+      <Link>sharpdx_direct3d11_1_effects_arm.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <PackagePath>runtimes/win8-arm/native/sharpdx_direct3d11_1_effects.dll</PackagePath>
+      <Pack>true</Pack>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharpDX\SharpDX.csproj" />
+    <ProjectReference Include="..\SharpDX.DXGI\SharpDX.DXGI.csproj" />
+    <ProjectReference Include="..\SharpDX.D3DCompiler\SharpDX.D3DCompiler.csproj" />
+    <ProjectReference Include="..\SharpDX.Direct3D11\SharpDX.Direct3D11.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Update="SharpGenTools.Sdk" Version="1.2.1" />
+  </ItemGroup>
+</Project>

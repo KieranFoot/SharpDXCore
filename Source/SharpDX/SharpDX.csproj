@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net5.0</TargetFrameworks>
+    <PackageId>SharpDX</PackageId>
+    <Product>SharpDX</Product>
+    <DocumentationFile Condition="'$(Configuration)' == 'Release'">bin\$(Configuration)\$(TargetFramework)\SharpDX.xml</DocumentationFile>
+    <AssemblyTitle>SharpDX</AssemblyTitle>
+    <Title>SharpDX</Title>
+    <Description>Core assembly for all SharpDX assemblies.</Description>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Mapping-core.xml" />
+    <None Include="Direct3D\Mapping.xml" />
+    <None Include="Documentation\CodeComments.xml" />
+    <None Include="Mapping.xml" />
+    <None Include="Multimedia\Mapping.xml" />
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="SharpGenTools.Sdk" Version="1.2.1" />
+  </ItemGroup>
+
+  <Import Project="../MappingFiles.props" />
+</Project>

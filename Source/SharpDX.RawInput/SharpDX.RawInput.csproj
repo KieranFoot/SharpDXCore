@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  
+  <PropertyGroup>
+    <TargetFrameworks>net45</TargetFrameworks>
+    <PackageId>SharpDX.RawInput</PackageId>
+    <Product>SharpDX.RawInput</Product>
+    <DocumentationFile Condition="'$(Configuration)' == 'Release'">bin\$(Configuration)\$(TargetFramework)\SharpDX.RawInput.xml</DocumentationFile>
+    <AssemblyTitle>SharpDX.RawInput</AssemblyTitle>
+    <Title>SharpDX.RawInput</Title>
+    <Description>Assembly providing DirectX - RawInput managed API.</Description>
+    <PackageTags>$(PackageTags) RawInput</PackageTags>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="Documentation\CodeComments.xml" />
+    <None Include="Mapping.xml" />
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpDX.Desktop\Win32Native.cs">
+      <Link>Win32Native.cs</Link>
+    </Compile>
+    <Compile Include="..\SharpDX.Desktop\MessageFilterHook.cs">
+      <Link>MessageFilterHook.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharpDX\SharpDX.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Update="SharpGenTools.Sdk" Version="1.2.1" />
+  </ItemGroup>
+
+  
+</Project>

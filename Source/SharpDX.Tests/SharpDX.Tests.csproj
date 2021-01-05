@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NUnit" Version="3.12.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.16.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SharpDX.Animation\SharpDX.Animation.csproj" />
+    <ProjectReference Include="..\SharpDX.D3DCompiler\SharpDX.D3DCompiler.csproj" />
+    <ProjectReference Include="..\SharpDX.Direct2D1\SharpDX.Direct2D1.csproj" />
+    <ProjectReference Include="..\SharpDX.Direct3D10\SharpDX.Direct3D10.csproj" />
+    <ProjectReference Include="..\SharpDX.Direct3D11.Effects\SharpDX.Direct3D11.Effects.csproj" />
+    <ProjectReference Include="..\SharpDX.Direct3D11\SharpDX.Direct3D11.csproj" />
+    <ProjectReference Include="..\SharpDX.Direct3D12\SharpDX.Direct3D12.csproj" />
+    <ProjectReference Include="..\SharpDX.Direct3D9\SharpDX.Direct3D9.csproj" />
+    <ProjectReference Include="..\SharpDX.DirectComposition\SharpDX.DirectComposition.csproj" />
+    <ProjectReference Include="..\SharpDX.DirectInput\SharpDX.DirectInput.csproj" />
+    <ProjectReference Include="..\SharpDX.DirectManipulation\SharpDX.DirectManipulation.csproj" />
+    <ProjectReference Include="..\SharpDX.DirectSound\SharpDX.DirectSound.csproj" />
+    <ProjectReference Include="..\SharpDX.DXGI\SharpDX.DXGI.csproj" />
+    <ProjectReference Include="..\SharpDX.Mathematics\SharpDX.Mathematics.csproj" />
+    <ProjectReference Include="..\SharpDX.MediaFoundation\SharpDX.MediaFoundation.csproj" />
+    <ProjectReference Include="..\SharpDX.XAudio2\SharpDX.XAudio2.csproj" />
+    <ProjectReference Include="..\SharpDX.XInput\SharpDX.XInput.csproj" />
+    <ProjectReference Include="..\SharpDX\SharpDX.csproj" />
+    <ProjectReference Include="..\Tools\SharpGitLog\SharpGitLog.csproj" />
+    <ProjectReference Include="..\Tools\SharpPak\SharpPak.csproj" />
+  </ItemGroup>
+
+</Project>

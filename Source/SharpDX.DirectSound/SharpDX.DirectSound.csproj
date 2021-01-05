@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  
+  <PropertyGroup>
+    <TargetFrameworks>net5.0</TargetFrameworks>
+    <PackageId>SharpDX.DirectSound</PackageId>
+    <Product>SharpDX.DirectSound</Product>
+    <DocumentationFile Condition="'$(Configuration)' == 'Release'">bin\$(Configuration)\$(TargetFramework)\SharpDX.DirectSound.xml</DocumentationFile>
+    <AssemblyTitle>SharpDX.DirectSound</AssemblyTitle>
+    <Title>SharpDX.DirectSound</Title>
+    <Description>Assembly providing DirectX - DirectSound managed API.</Description>
+    <PackageTags>$(PackageTags) DirectSound DSound</PackageTags>
+    <SharpDXLegacy>true</SharpDXLegacy>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net45' OR  '$(TargetFramework)' == 'netcoreapp1.0' ">
+    <DefineConstants>$(DefineConstants);DESKTOP_APP</DefineConstants>
+    <SharpDXAppType>DESKTOP_APP</SharpDXAppType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' ">
+    <DefineConstants>$(DefineConstants);REFERENCE</DefineConstants>
+    <SharpDXAppType>REFERENCE</SharpDXAppType>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="Documentation\CodeComments.xml" />
+    <None Include="Mapping.xml" />
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharpDX\SharpDX.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Update="SharpGenTools.Sdk" Version="1.2.1" />
+  </ItemGroup>
+
+  
+</Project>
